@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Adoption Confirmation - Virtual Pet Adoption Center</title>
+</head>
+<body>
+    <!-- Header -->
+    <header class="container">
+        <h1>Virtual Pet Adoption Center</h1>
+        <p>Your Journey to a Furry Friend</p>
+    </header>
+
+    <!-- Adoption Confirmation Section -->
+    <section class="container confirmation">
+        <h2>Adoption Details</h2>
+        <p>Thank you for choosing to adopt a pet from the Virtual Pet Adoption Center. Here are the details of your adoption:</p>
+        <p><strong>Pet:</strong> <span id="adoptedPet"></span></p>
+        <p><strong>Breed:</strong> <span id="adoptedBreed"></span></p>
+    </section>
+
+    <!-- Final Steps Section -->
+    <section class="container final-steps">
+        <h3>Next Steps</h3>
+        <p>Your adoption is almost complete! Here's what to expect next:</p>
+        <ul>
+            <li>Finalize Paperwork: Our team will guide you through the final paperwork to make the adoption official.</li>
+            <li>Prepare for Arrival: Get your home ready by gathering pet supplies, a comfortable bed, and nutritious food.</li>
+            <li>Welcoming Your Pet: When your new pet arrives, give them a warm and safe environment to help them settle in.</li>
+            <li>Veterinary Care: Schedule a visit to the vet for a health check and to establish a care routine.</li>
+            <li>Training and Bonding: Spend quality time with your new companion to build a strong and loving bond.</li>
+        </ul>
+    </section>
+
+    <!-- Footer -->
+    <footer class="container">
+        <p>© 2023 Virtual Pet Adoption Center</p>
+    </footer>
+
+    <!-- JavaScript to populate the adopted pet's details -->
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const adoptedPet = urlParams.get('pet');
+        const adoptedBreed = getBreed(adoptedPet);
+
+        // Update the content of the spans with the adopted pet's details
+        document.getElementById('adoptedPet').textContent = adoptedPet;
+        document.getElementById('adoptedBreed').textContent = adoptedBreed;
+
+        // Function to retrieve breed based on adopted pet
+        function getBreed(pet) {
+            switch (pet) {
+                case 'Rusty':
+                    return 'Golden Retriever';
+                case 'Whiskey':
+                    return 'Siamese Cat';
+                case 'Smokey':
+                    return 'Maine Coon Cat';
+                case 'Luna':
+                    return 'Domestic Shorthair Cat';
+                default:
+                    return '';
+            }
+        }
+    </script>
+</body>
+</html>
